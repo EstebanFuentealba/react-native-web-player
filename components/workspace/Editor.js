@@ -35,6 +35,7 @@ export default class extends Component {
     value: null,
     onChange: () => {},
     readOnly: false,
+    className: ''
   }
 
   componentDidMount() {
@@ -98,10 +99,10 @@ export default class extends Component {
   }
 
   render() {
-    const {readOnly} = this.props
+    const {readOnly, className} = this.props
 
     return (
-      <div style={styles.editorContainer} className={readOnly && 'read-only'}>
+      <div style={styles.editorContainer} className={readOnly ? 'read-only' : className }>
         <div style={styles.editor} ref={'editor'} />
       </div>
     )

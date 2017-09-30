@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import ReactNative, { AppRegistry } from 'react-native-web'
+import * as ReactNative from 'react-native-web'
 import pureRender from 'pure-render-decorator'
 
 import VendorComponents from './VendorComponents'
 import consoleProxy, { consoleLog, consoleClear } from './ConsoleProxy'
 import { prefixObject } from '../../utils/PrefixInlineStyles'
+
 
 window._consoleProxy = consoleProxy
 
@@ -13,7 +14,7 @@ window._consoleProxy = consoleProxy
 window.regeneratorRuntime = require('regenerator-runtime')
 
 const APP_NAME = 'App'
-
+let { AppRegistry } = ReactNative;
 // Override registerComponent in order to ignore the name used
 const registerComponent = AppRegistry.registerComponent.bind(AppRegistry)
 AppRegistry.registerComponent = (name, f) => {
